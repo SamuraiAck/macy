@@ -17,7 +17,7 @@ Short for MultiCAst thingY, macy is a command-line tool for testing IP multicast
 Macy was developed on Debian 12 using the golang-go package (Go 1.19). Please report any problems encountered with other build environments.
 
 ```
-apt install git golang-go
+sudo apt install git golang-go
 git clone https://github.com/SamuraiAck/macy
 cd macy
 go build
@@ -66,12 +66,12 @@ Macy provides a TUI to display information to the user. Labels along the top ide
 
 ## Roadmap
 
-- Rework transmit rate for testing throughput
+- Rework rate option for testing throughput
 - Display statistics when the user selects a cell in the table
-- Add daemon mode so macy can be run as a system service
 - Analyze PIM packets to identify common problems
-- Add support for source-specific multicast (SSM)?
-- Add a web interface?
+- Add support for Source-Specific Multicast (SSM)
+- Add daemon mode so macy can be run as a system service
+- Maybe a web interface?
 
 
 
