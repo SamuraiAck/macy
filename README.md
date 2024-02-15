@@ -1,15 +1,16 @@
 # macy
 
-Short for MultiCAst thingY, macy is a command-line tool for testing IP multicast on Linux, MacOS, and Windows.
+Short for MultiCAst thingY, macy is a tool for testing multicast-enabled networks.
 
 <img alt="Demo" src="./examples/Demo.gif" width="700" />
 
 ## Features
 
-- Supports IPv4 and IPv6, mode is determined by the chosen group address.
-- Multiple instances can run on the same machine at the same time without interfering with each other.
+- Works on Linux, MacOS, and Windows.
+- Supports IPv4 and IPv6. Mode is determined by the group address.
 - Control the TTL, DSCP, and DF-bit. Packets can be padded to any size to check for MTU issues.
 - No reliance on the system routing table, packets will be sent from all routable addresses on all interfaces by default. Link-local addresses can be enabled with a command-line switch. Addresses and interfaces can be specified with regex.
+- Multiple instances can run on the same machine at the same time without interfering with each other.
 - Results are displayed in table format to make problems easy to spot.
 
 ## Installation
