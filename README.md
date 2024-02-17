@@ -8,8 +8,9 @@ Short for MultiCAst thingY, macy is a tool for testing multicast-enabled network
 
 - Works on Linux, MacOS, and Windows.
 - Supports IPv4 and IPv6. Mode is determined by the group address.
-- Control the TTL, DSCP, and DF-bit. Packets can be padded to any size to check for MTU issues.
-- No reliance on the system routing table, packets will be sent from all routable addresses on all interfaces by default. Link-local addresses can be enabled with a command-line switch. Addresses and interfaces can be specified with regex.
+- Control TTL, DSCP, and the DF-bit. Packets can be padded to any size to check for MTU issues.
+- No reliance on the system routing table, packets are sent from all routable addresses on all interfaces by default. Link-local addresses can be enabled with a command-line switch. Addresses and interfaces can be specified with regex.
+- Adapts quickly to address and interface changes.
 - Multiple instances can run on the same machine at the same time without interfering with each other.
 - Results are displayed in table format to make problems easy to spot.
 
@@ -26,7 +27,7 @@ go build
 
 ## Usage
 
-By default macy will use multicast group 239.239.239.239, UDP port 23923, and a TTL of 1. This will transmit multicast from all attached IPv4 addresses except those in the link-local range 169.254.0.0/16 (which can be enabled with the -l/--linklocal option). Packets will not be forwarded by adjacent routers due to the TTL, so to test multicast routing, use -t/--ttl followed by a suitable maximum hop count. To test IPv6, use -g/--group followed by an address such as ff08::239.
+By default macy uses multicast group 239.239.239.239, UDP port 23923, and a TTL of 1. This will transmit multicast packets from all attached IPv4 addresses except those in the link-local range 169.254.0.0/16 (which can be enabled with the -l/--linklocal option). Packets will not be forwarded by adjacent routers due to the TTL, so to test multicast routing, use -t/--ttl followed by a suitable maximum hop count. To test IPv6, use -g/--group followed by an address such as ff08::239.
 
 Options:
 ```
@@ -60,18 +61,18 @@ Macy provides a TUI to display information to the user. Labels along the top ide
 
 - Pressing Q exits the program.
 
-## Bugs
+## Known Bugs
 
 - Setting the DSCP value for IPv6 is not supported on Windows.
 - When fragmentation is disabled (the default), trying to send a packet larger than an interface MTU fails silently on Windows. On Linux and MacOS, an error appears in the log as intended.
 
 ## Roadmap
 
-- Rework rate option for testing throughput
-- Display statistics when the user selects a cell in the table
-- Analyze PIM packets to identify common problems
-- Add support for Source-Specific Multicast (SSM)
-- Add daemon mode so macy can be run as a system service
+- Rework rate option for testing throughput.
+- Display statistics when the user selects a cell in the table.
+- Analyze PIM packets to identify common problems.
+- Add support for Source-Specific Multicast (SSM).
+- Add daemon mode so macy can be run as a system service.
 - Maybe a web interface?
 
 
