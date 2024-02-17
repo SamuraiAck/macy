@@ -64,7 +64,7 @@ Macy provides a TUI to display information to the user. Labels along the top ide
 ## Known Bugs
 
 - Setting the DSCP value for IPv6 is not supported on Windows.
-- When fragmentation is disabled (the default), trying to send a packet larger than an interface MTU fails silently on Windows. On Linux and MacOS, an error appears in the log as intended.
+- When fragmentation is disabled (the default), trying to send a packet larger than an interface MTU fails silently on Windows. On other platforms, an error appears in the log as intended.
 
 ## Roadmap
 
